@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turystyczny gniot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <a href="{{ url_for('homePage') }}"><h1>TurystycznyGniot</h1></a>
+    </header>
+
+    <main>
+        <nav>
+            <ul>
+                <li>
+                    {% if 'userId' in session: %}
+                    <a href="{{ url_for('profile') }}">Twój profil</a>
+                    <a href="{{ url_for('logout') }}">Wyloguj</a>
+                    {% else: %}
+                    <a href="{{ url_for('signIn') }}">Zaloguj</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <h2>Produkty</h2>
+            <div class="row">
+                <div class="products">
+                    {% for product in products %}
+                    <div class="product">
+                        <a href="{{ url_for('order', id1=product[0]) }}">
+                            <img src="./static/graphics/products/{{product[5]}}" alt="{{ product[5] }}">
+                        </a>
+                        <h4>{{ product[1] }}</h4>
+                        <p>{{ product[2] }}</p>
+                        <p>{{ product[3] }}</p>
+                        <a href="{{ url_for('order', id1=product[0]) }}" class="button">Kup</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
