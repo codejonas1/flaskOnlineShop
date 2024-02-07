@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/styles.css') }}">
+</head>
+<body>
+
+    <header>
+       <a href="{{ url_for('homePage') }}"><h1>TurystycznyGniot</h1></a>
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li>
+                     <a href="{{ url_for('homePage') }}">Strona Główna</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}">Wyloguj</a>
+                </li>
+                {% if session['userId'] == 1: %}
+                <li>
+                    <a href="{{ url_for('adminPanel') }}">Panel Administratora</a>
+                </li>
+                {%endif%}
+            </ul>
+        </nav>
+        <div class="container">
+
+            <h1>Siema {{ user[0] }} {{user[1]}}</h1>
+
+            <h1>Zamowienia</h1>
+            <table>
+                <tr>
+                    <th>ID Zamowienia</th>
+                    <th>Nazwa</th>
+                    <th>Data</th>
+                    <th>Kod Pocztowy</th>
+                    <th>Miasto</th>
+                    <th>Adres</th>
+                    <th>Liczba</th>
+                    <th>Cena</th>
+                    <th>Status</th>
+                </tr>
+                {% for order in orders: %}
+                <tr>
+                    <td>{{ order[0] }}</td>
+                    <td>{{ order[1] }}</td>
+                    <td>{{ order[2] }}</td>
+                    <td>{{ order[3] }}</td>
+                    <td>{{ order[4] }}</td>
+                    <td>{{ order[5] }}</td>
+                    <td>{{ order[6] }}</td>
+                    <td>{{ order[7] }}</td>
+                    <td>{{ order[8] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </main>
+</body>
+</html>

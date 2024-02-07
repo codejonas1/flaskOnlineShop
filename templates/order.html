@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zamowienie</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <a href="{{ url_for('homePage') }}"><h1>TurystycznyGniot</h1></a>
+    </header>
+    <main>
+         <nav>
+            <ul>
+                <li>
+                    {% if 'userId' in session: %}
+                    <a href="{{ url_for('profile') }}">Twój profil</a>
+                    <a href="{{ url_for('logout') }}">Wyloguj</a>
+                    {% else: %}
+                    <a href="{{ url_for('signIn') }}">Zaloguj</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+        <div class="container single-product">
+            <div class="row">
+                <div class="col">
+                    <img src="../static/graphics/products/{{ product[5] }}">
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <h1>{{ product[1] }}</h1>
+                        <h3>Opis produktu</h3>
+                        <p>{{ product[2] }}</p>
+                        <h4>{{ product[3] }} zł</h4>
+
+                        <h3>Zamów:</h3>
+
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                            <p class="{{ category }}">{{ message }}</p>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        <form action="{{ url_for('order', id1=product[0]) }}" method="post">
+                            <input type="text" name="zip_code" placeholder="Kod pocztowy">
+                            <br>
+                            <input type="text" name="city" placeholder="Miasto" required>
+                            <br>
+                            <input type="text" name="address" placeholder="Adres" required>
+                            <br>
+                            <input type="number" max="{{ product[4] }}" min="1" value="1" name="numOfProduct">
+                            <p><b>Liczba:</b> {{ product[4] }}</p>
+
+                            {% if product[4] == 0: %}
+                            <input type="submit" value="Zamów" disabled>
+                            <p>Brak produktu w magazynie</p>
+                            {% else: %}
+                            <input type="submit" value="KUP" class="button">
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

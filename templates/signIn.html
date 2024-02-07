@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('homePage') }}"><h1>TurystycznyGniot</h1></a>
+    </header>
+
+    <main>
+        <div class="container">
+                <div class="col">
+                    <h1>Logowanie</h1>
+                </div>
+                <form action="{{ url_for('login') }}" method="post">
+                    <br>
+                    <br>
+                    <label for="imie"></label>
+                    <input type="text" id="imie" name="name" placeholder="imie" required>
+                    <br>
+                    <label for="haslo"></label>
+                    <input type="password" id="haslo" name="password" placeholder="Haslo" required>
+                    <br>
+                    <br>
+                    <input type="submit" value="Zaloguj" class="button">
+                </form>
+        </div>
+    </main>
+</body>
+</html>

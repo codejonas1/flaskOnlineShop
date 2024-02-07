@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aktualizuj produkt</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('homePage') }}"><h1>TurystycznyGniot</h1></a>
+    </header>
+
+    <main>
+        <div class="container">
+                <div class="col">
+                    <h1>Produkt o ID: {{product[0]}}</h1>
+                </div>
+
+                <form action="{{ url_for('updateProduct', productId=product[0]) }}" method="post">
+                    <br>
+                    <br>
+                    <label> Nazwa <br>
+                    <input type="text" name="name" placeholder="Nazwa" value="{{product[1]}}" required>
+                    </label>
+                    <br>
+                    <label> Opis <br>
+                    <input type="text" name="description" placeholder="Opis" value="{{product[2]}}" required>
+                    </label>
+
+                    <br>
+
+                    <label> Cena <br>
+                    <input type="number" name="price" step="0.01" placeholder="Cena" value="{{product[3]}}" required>
+                    </label>
+                    <br>
+                    <label> Liczba <br>
+                    <input type="number" name="number" placeholder="Liczba" value="{{product[4]}}" required>
+                    </label>
+                    <br>
+
+                    <div style="width:200px;">
+                        <img src='/static/graphics/products/{{product[5]}}' width="100%" alt="{{product[5]}}">
+                    </div>
+                    <br>
+                    <br>
+                    <input type="submit" value="Aktualizuj" class="button">
+                </form>
+        </div>
+    </main>
+
+</body>
+</html>
