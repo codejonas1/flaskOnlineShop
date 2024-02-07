@@ -1,0 +1,243 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Georgia;
+}
+header{
+    background-color: #76C082;
+    padding:20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+header h1{
+    color: #DEF9E2;
+    border: 4px solid #DEF9E2;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 10px;
+}
+.container h2{
+    padding: 38px 12px;
+    margin-bottom: 10px;
+}
+main{
+    max-width: 100%;
+    width: 1800px;
+    margin: 100px auto;
+    box-sizing: border-box;
+}
+.row {
+    display: flex;
+    align-items: flex-start;;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: calc(25% - 30px);
+    box-sizing: border-box;
+    margin-bottom: 60px;
+    transition: transform 0.3s;
+}
+.product img{
+    margin-top: 18px;
+    width:100%;
+    margin-bottom: 20px;
+}
+.product h4{
+    text-align: center;
+    font-size: 1.2rem;
+}
+.product p{
+    text-align: center;
+    padding:10px;
+}
+.button{
+    margin-top: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 10px;
+    color:#DEF9E2;
+    background-color: #76C082;
+    border-color: #76C082;
+    border-style: none;
+}
+.product:hover{
+    transform: translateY(-5px);
+}
+.col{
+    flex-basis: 35%;
+    box-sizing: border-box;
+}
+.col .product-info {
+    padding: 0 20px;
+    min-height: 200px;
+}
+.col img{
+    width:100%;
+    margin-top: 60px;
+}
+.col h2{
+    padding: 5px 12px;
+    margin-top:33px;
+}
+.container.single-product{
+    max-width: 1350px;
+}
+.single-product h1{
+    padding: 25px 12px;
+    font-size: 2.5rem;
+}
+.single-product h3{
+    padding: 10px 12px;
+    font-size: 1.35rem;
+}
+.single-product p{
+    padding: 0px 12px;
+}
+.single-product h4{
+    padding: 30px 12px;
+    font-size:1.5rem;
+}
+.single-product input{
+    text-align: center;
+    font-size: 18px;
+    padding-left:12px;
+    margin-left: 12px;
+    margin-right:18px;
+    border: 1px solid #76C082;
+    border-radius: 10px;
+}
+input:focus{
+    outline:none;
+}
+form input{
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #76C082;
+}
+.panel h4{
+    margin-top: 15px;
+    padding: 5px 12px;
+    font-size:1.3rem;
+}
+.panel h3{
+    padding: 10px 12px;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+.panel table{
+    font-size: 1.1rem;
+    table-layout: fixed;
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 100%;
+
+}
+
+table{
+width:100%;
+border-collapse: collapse;
+}
+
+.panel table,th,td{
+    border: 2px solid #76C082;
+    border-collapse: collapse;
+    font-size:15px;
+    padding:0;
+}
+td .button{
+    padding: 5px 20px;
+    font-size: 15px;
+}
+select{
+    border-color: #76C082;
+    border-radius: 6px;
+    border-width: 2px;
+}
+.panel th,td{
+    padding: 1px;
+    width:3px;
+    overflow-wrap: break-word;
+    text-align: center;
+    white-space: normal;
+}
+.panel form{
+    margin-left: 10px;
+}
+.container.panel{
+    max-width: 1500px;
+}
+.prod td:nth-child(3),
+.prod th:nth-child(3) {
+    width: 40px; /* Dostosuj szerokość według potrzeb */
+}
+main .panel{
+    width: 2000px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+nav{
+    background-color: #DEF9E2;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    margin-bottom: 10px;
+}
+nav ul{
+    text-align: right;
+    white-space: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+nav li{
+    width: 10%;
+    display: inline-block;
+    font-size: 15px;
+}
+
+
+
+@media (max-width: 768px) {
+    .col {
+        flex-basis: 100%;
+    }
+
+    .product {
+        flex-basis: calc(50% - 40px);
+    }
+}
+.error{color: red;}
+.warning{color: orange;}
+.info{color: blue;}
+.success{color: green;}
